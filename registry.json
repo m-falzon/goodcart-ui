@@ -1,0 +1,476 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "goodcart",
+  "homepage": "https://goodcart.co",
+  "items": [
+    {
+      "name": "goodcart-theme",
+      "type": "registry:theme",
+      "title": "GoodCart theme",
+      "description": "GoodCart colour roles and radius as CSS variables (light + draft dark).",
+      "cssVars": {
+        "theme": {
+          "radius": "0.5rem"
+        },
+        "light": {
+          "background": "0 0% 100%",
+          "foreground": "40 17.6% 3.3%",
+          "canvas": "24 23.8% 95.9%",
+          "card": "0 0% 100%",
+          "card-foreground": "40 17.6% 3.3%",
+          "popover": "0 0% 100%",
+          "popover-foreground": "40 17.6% 3.3%",
+          "primary": "38.2 21.6% 10%",
+          "primary-foreground": "0 0% 100%",
+          "secondary": "25.7 24.1% 94.3%",
+          "secondary-foreground": "40 17.6% 3.3%",
+          "muted": "25.7 24.1% 94.3%",
+          "muted-foreground": "36 4.4% 44.3%",
+          "accent": "25.7 24.1% 94.3%",
+          "accent-foreground": "40 17.6% 3.3%",
+          "brand": "5.1 80.5% 53.7%",
+          "brand-foreground": "0 0% 100%",
+          "destructive": "6.9 72.7% 44.5%",
+          "destructive-foreground": "0 0% 100%",
+          "success": "125 37.5% 87.5%",
+          "success-foreground": "130.9 37.9% 22.7%",
+          "warning": "40.4 71.9% 87.5%",
+          "warning-foreground": "38 80.3% 23.9%",
+          "danger": "7.5 69.6% 91%",
+          "danger-foreground": "6.4 65.1% 33.7%",
+          "border": "30 9.7% 87.8%",
+          "border-strong": "20 6% 80.4%",
+          "input": "20 7.4% 76.3%",
+          "input-focus": "38.8 6.8% 48.8%",
+          "ring": "38.8 17.2% 19.4%",
+          "track": "25.7 17.1% 92%",
+          "overlay": "38.2 21.6% 10%"
+        },
+        "dark": {
+          "background": "34.3 21.2% 6.5%",
+          "foreground": "24 23.8% 95.9%",
+          "canvas": "34.3 21.2% 6.5%",
+          "card": "38.2 21.6% 10%",
+          "card-foreground": "24 23.8% 95.9%",
+          "popover": "38.2 21.6% 10%",
+          "popover-foreground": "24 23.8% 95.9%",
+          "primary": "24 23.8% 95.9%",
+          "primary-foreground": "38.2 21.6% 10%",
+          "secondary": "36 17.2% 17.1%",
+          "secondary-foreground": "24 23.8% 95.9%",
+          "muted": "38.2 21.6% 10%",
+          "muted-foreground": "36.7 9.4% 62.4%",
+          "accent": "36 17.2% 17.1%",
+          "accent-foreground": "24 23.8% 95.9%",
+          "brand": "5.1 80.5% 53.7%",
+          "brand-foreground": "0 0% 100%",
+          "destructive": "5.1 80.5% 53.7%",
+          "destructive-foreground": "0 0% 100%",
+          "success": "130.9 37.9% 22.7%",
+          "success-foreground": "125 37.5% 87.5%",
+          "warning": "38 80.3% 23.9%",
+          "warning-foreground": "40.4 71.9% 87.5%",
+          "danger": "6.4 65.1% 33.7%",
+          "danger-foreground": "7.5 69.6% 91%",
+          "border": "36 17.2% 17.1%",
+          "border-strong": "38.8 17.2% 19.4%",
+          "input": "38.8 17.2% 19.4%",
+          "input-focus": "36.7 9.4% 62.4%",
+          "ring": "36.7 9.4% 62.4%",
+          "track": "38.2 21.6% 10%",
+          "overlay": "34.3 21.2% 6.5%"
+        }
+      },
+      "files": []
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "cn utility",
+      "description": "Merges Tailwind class names.",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "src/lib/utils.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "A modal that interrupts to confirm a destructive or important action.",
+      "dependencies": [
+        "@radix-ui/react-alert-dialog"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "Inline status message with success, warning and danger tones.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "A user image with an initials fallback.",
+      "dependencies": [
+        "@radix-ui/react-avatar"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Small status or count label.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Triggers an action. Pill-shaped by default.",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "A bordered container for grouped content.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "A control that toggles between checked and not checked.",
+      "dependencies": [
+        "@radix-ui/react-checkbox",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "A modal window layered over the page.",
+      "dependencies": [
+        "@radix-ui/react-dialog",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "A pill-shaped text field.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "An accessible label for a form control.",
+      "dependencies": [
+        "@radix-ui/react-label"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "screenshot-card",
+      "type": "registry:ui",
+      "title": "Screenshot Card",
+      "description": "GoodCart gallery tile: screenshot, brand and page type, with optional bookmark.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/screenshot-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "segmented-control",
+      "type": "registry:ui",
+      "title": "Segmented Control",
+      "description": "Single-choice pill switcher, like the Desktop / Mobile toggle.",
+      "dependencies": [
+        "@radix-ui/react-toggle-group"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/segmented-control.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Pick one option from a list.",
+      "dependencies": [
+        "@radix-ui/react-select",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "A thin divider between content.",
+      "dependencies": [
+        "@radix-ui/react-separator"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "A placeholder shown while content loads.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "An on/off toggle for settings.",
+      "dependencies": [
+        "@radix-ui/react-switch"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "A responsive data table.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Switch between panels of related content.",
+      "dependencies": [
+        "@radix-ui/react-tabs"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tag",
+      "type": "registry:ui",
+      "title": "Tag",
+      "description": "Filter chip that can be toggled or removed.",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/tag.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "A multi-line text field.",
+      "dependencies": [],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "A short label shown on hover or focus.",
+      "dependencies": [
+        "@radix-ui/react-tooltip"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}

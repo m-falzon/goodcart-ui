@@ -1,0 +1,7 @@
+/* Overused Grotesk variable font. Copy assets/fonts/ to your public folder, or let your bundler resolve the relative URL. */
+@font-face {
+  font-family: 'Overused Grotesk';
+  src: url('./fonts/OverusedGroteskRoman-VF.woff2') format('woff2-variations');
+  font-weight: 300 900;
+  font-display: swap;
+}
