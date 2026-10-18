@@ -1,8 +1,10 @@
+'use client';
+
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { X } from 'lucide-react';
 
-import { cn } from '@/lib/utils';
+import { cn } from '../../lib/utils';
 
 const tagVariants = cva(
   'inline-flex h-8 items-center gap-1.5 rounded-full border px-3.5 text-sm font-medium transition-colors duration-fast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-3.5',

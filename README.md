@@ -35,10 +35,16 @@ npx shadcn@latest add https://<docs-host>/r/goodcart-theme.json
 npx shadcn@latest add https://<docs-host>/r/button.json
 ```
 
-**Git package**, once this folder is its own repo:
+**Git package** — no hosting needed. Pin a release tag so updates are deliberate:
 
 ```bash
-npm install github:m-falzon/goodcart-ui
+npm install github:m-falzon/goodcart-ui#v0.1.0
+```
+
+Components ship as `.tsx` source, so Next.js needs `transpilePackages: ['@goodcart/ui']` in `next.config`, and Tailwind's `content` must include `./node_modules/@goodcart/ui/src/**/*.tsx`.
+
+```tsx
+import { Button } from '@goodcart/ui/components/button';
 ```
 
 ```css
@@ -53,9 +59,16 @@ presets: [require('@goodcart/ui/tailwind-preset')]
 
 ## Adding a component
 
-1. Add `src/components/ui/<name>.tsx` (import `cn` from `@/lib/utils`).
+1. Add `src/components/ui/<name>.tsx`. Use relative imports (`../../lib/utils`, `./button`) so Git installs work; the registry build rewrites them to `@/` for the shadcn CLI. Add `'use client'` if it uses Radix, state or event handlers.
 2. Add an item to `registry.json` with its npm `dependencies`.
 3. Add `docs/examples/<name>-demo.tsx` and an entry in `docs/content/components.ts`.
+
+## Releasing
+
+```bash
+npm version minor        # bumps package.json and creates the tag
+git push --follow-tags
+```
 
 ## Known gaps
 

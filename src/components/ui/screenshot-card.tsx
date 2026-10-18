@@ -1,7 +1,9 @@
+'use client';
+
 import * as React from 'react';
 import { Bookmark } from 'lucide-react';
 
-import { cn } from '@/lib/utils';
+import { cn } from '../../lib/utils';
 
 export interface ScreenshotCardProps extends React.HTMLAttributes<HTMLElement> {
   src: string;

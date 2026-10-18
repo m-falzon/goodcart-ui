@@ -25,7 +25,7 @@
     "build": "npm run tokens && npm run registry:build && vite build",
     "preview": "vite preview",
     "tokens": "node scripts/build-tokens.mjs",
-    "registry:build": "shadcn build --output docs/public/r",
+    "registry:build": "shadcn build --output docs/public/r && node scripts/build-registry.mjs",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
