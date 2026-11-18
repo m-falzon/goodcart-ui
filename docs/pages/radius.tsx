@@ -19,8 +19,9 @@ export function Radius() {
       </div>
       <H2>Where each one goes</H2>
       <P>
-        <Code>rounded-full</Code>: buttons, inputs, selects, tags, tabs, segmented controls, badges. <Code>rounded-2xl</Code>: cards, dialogs, screenshot
-        tiles, textareas. <Code>rounded-xl</Code>: alerts, menus, code blocks. <Code>rounded-lg</Code>: tooltips, square buttons, skeletons.
+        <Code>rounded-full</Code>: buttons, inputs, selects, tags, tabs, segmented controls, badges. <Code>rounded-5xl</Code>: dialogs, sheets, the account
+        menu and the viewer. <Code>rounded-4xl</Code>: textareas and context menus. <Code>rounded-3xl</Code>: filter and sort menus, popovers. <Code>rounded-2xl</Code>: cards, dialogs, screenshot tiles, textareas.{' '}
+        <Code>rounded-xl</Code>: alerts, menu rows, code blocks. <Code>rounded-lg</Code>: tooltips, square buttons, skeletons.
       </P>
     </>
   );

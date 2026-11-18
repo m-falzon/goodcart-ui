@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 
 import { CodeBlock } from '../components/code-block';
 import { H2, P, PageHeader } from '../components/prose';
-import { durations, easings } from '../lib/tokens';
+import { durations, easings, spring } from '../lib/tokens';
 
 function Curve({ points }: { points: number[] }) {
   const [x1, y1, x2, y2] = points;
@@ -24,7 +24,7 @@ export function Motion() {
       <PageHeader
         eyebrow="Foundations"
         title="Motion"
-        description="Natural deceleration, nothing bouncy. Motion confirms an action or shows where something came from; it never decorates."
+        description="Natural deceleration, with a small spring reserved for menus and pop-ins. Motion confirms an action or shows where something came from; it never decorates."
       />
 
       <H2>Easing</H2>
@@ -56,6 +56,11 @@ export function Motion() {
           </div>
         ))}
       </div>
+
+      <H2>Spring</H2>
+      <P>
+        <code className="font-mono text-sm">ease-[var(--ease-spring)]</code> — {spring.$description}
+      </P>
 
       <H2>Duration</H2>
       <div className="grid gap-4 sm:grid-cols-3">

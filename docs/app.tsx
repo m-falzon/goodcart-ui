@@ -110,11 +110,11 @@ export function App() {
   }, [title]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-canvas">
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:z-50 focus:rounded-full focus:bg-background focus:px-4 focus:py-2 focus:text-sm focus:shadow-md">
         Skip to content
       </a>
-      <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
+      <header className="sticky top-0 z-40 border-b border-border bg-canvas/90 backdrop-blur">
         <div className="mx-auto flex h-14 max-w-[1440px] items-center gap-3 px-4 sm:px-6 lg:px-8">
           <Button variant="ghost" size="icon" className="-ml-2 lg:hidden" aria-label="Open navigation" onClick={() => setMenuOpen(true)}>
             <Menu />
@@ -141,7 +141,7 @@ export function App() {
       {menuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true" aria-label="Navigation">
           <div className="absolute inset-0 bg-overlay/60" onClick={() => setMenuOpen(false)} />
-          <div className="absolute inset-y-0 left-0 w-72 max-w-[85vw] overflow-y-auto bg-background p-4 shadow-lg">
+          <div className="absolute inset-y-0 left-0 w-72 max-w-[85vw] overflow-y-auto bg-canvas p-4 shadow-lg">
             <div className="mb-6 flex items-center justify-between">
               <img src="./goodcart-logo.svg" alt="GoodCart" className="h-6 w-auto dark:invert" />
               <Button variant="ghost" size="icon" aria-label="Close navigation" onClick={() => setMenuOpen(false)}>

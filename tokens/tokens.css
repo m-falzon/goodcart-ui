@@ -3,20 +3,25 @@
 :root {
   /* Palette — raw hex, for one-off use. Prefer the semantic roles below. */
   --gc-white: #FFFFFF;
-  --gc-canvas: #F7F4F2;
+  --gc-canvas: #F9F6F4;
   --gc-tint: #F4F0ED;
   --gc-tint-strong: #E8E3DF;
   --gc-toggle: #EEEAE7;
+  --gc-control: #EAE6E3;
+  --gc-control-strong: #E1DCD8;
   --gc-line: #E3E0DD;
   --gc-line-strong: #D0CCCA;
   --gc-field: #C7C1BE;
+  --gc-field-hover: #A8A29C;
   --gc-field-focus: #857F74;
   --gc-faint: #76726C;
   --gc-icon: #3A3429;
+  --gc-icon-deep: #2E2A21;
   --gc-dark: #1F1B14;
+  --gc-dark-raised: #433C30;
   --gc-ink: #0A0907;
   --gc-accent: #E83A2A;
-  --gc-red: #C4321F;
+  --gc-red: #B8341A;
   --gc-success: #D3EBD5;
   --gc-success-ink: #24502C;
   --gc-warning: #F6E7C8;
@@ -32,13 +37,17 @@
   /* Semantic roles (HSL channels) */
   --background: 0 0% 100%;
   --foreground: 40 17.6% 3.3%;
-  --canvas: 24 23.8% 95.9%;
+  --canvas: 24 29.4% 96.7%;
   --card: 0 0% 100%;
   --card-foreground: 40 17.6% 3.3%;
   --popover: 0 0% 100%;
   --popover-foreground: 40 17.6% 3.3%;
   --primary: 38.2 21.6% 10%;
   --primary-foreground: 0 0% 100%;
+  --primary-hover: 37.9 16.5% 22.5%;
+  --selected: 38.8 17.2% 19.4%;
+  --selected-foreground: 0 0% 100%;
+  --selected-hover: 41.5 16.5% 15.5%;
   --secondary: 25.7 24.1% 94.3%;
   --secondary-foreground: 40 17.6% 3.3%;
   --muted: 25.7 24.1% 94.3%;
@@ -47,7 +56,7 @@
   --accent-foreground: 40 17.6% 3.3%;
   --brand: 5.1 80.5% 53.7%;
   --brand-foreground: 0 0% 100%;
-  --destructive: 6.9 72.7% 44.5%;
+  --destructive: 9.9 75.2% 41.2%;
   --destructive-foreground: 0 0% 100%;
   --success: 125 37.5% 87.5%;
   --success-foreground: 130.9 37.9% 22.7%;
@@ -58,9 +67,12 @@
   --border: 30 9.7% 87.8%;
   --border-strong: 20 6% 80.4%;
   --input: 20 7.4% 76.3%;
-  --input-focus: 38.8 6.8% 48.8%;
+  --input-hover: 30 6.5% 63.5%;
+  --input-focus: 38.8 17.2% 19.4%;
   --ring: 38.8 17.2% 19.4%;
   --track: 25.7 17.1% 92%;
+  --control: 25.7 14.3% 90.4%;
+  --control-hover: 26.7 13% 86.5%;
   --overlay: 38.2 21.6% 10%;
   
   /* Type */
@@ -69,8 +81,11 @@
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
+  --text-2xs: 0.6875rem;
   --text-xs: 0.75rem;
+  --text-meta: 0.8125rem;
   --text-sm: 0.875rem;
+  --text-md: 0.9375rem;
   --text-base: 1rem;
   --text-lg: 1.125rem;
   --text-xl: 1.25rem;
@@ -86,14 +101,26 @@
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
   --radius-2xl: 1rem;
+  --radius-3xl: 1.25rem;
+  --radius-4xl: 1.5rem;
+  --radius-5xl: 1.75rem;
   --radius-full: 9999px;
   --shadow-xs: 0 1px 2px 0 rgb(31 27 20 / 0.05);
   --shadow-sm: 0 1px 3px 0 rgb(31 27 20 / 0.08), 0 1px 2px -1px rgb(31 27 20 / 0.06);
   --shadow-md: 0 4px 12px -2px rgb(31 27 20 / 0.08), 0 2px 4px -2px rgb(31 27 20 / 0.05);
   --shadow-lg: 0 16px 40px -8px rgb(31 27 20 / 0.16), 0 4px 12px -4px rgb(31 27 20 / 0.06);
+  --shadow-menu: 0 0 0 1px rgb(58 52 41 / 0.06), 0 8px 32px rgb(58 52 41 / 0.08);
+  --shadow-overlay: 0 16px 64px rgb(31 27 20 / 0.10);
+  --shadow-focus: 0 0 0 4px rgb(31 27 20 / 0.07);
+  --shadow-focus-danger: 0 0 0 4px rgb(184 52 26 / 0.12);
+  --shadow-toast: 0 8px 24px -8px rgb(10 9 7 / 0.45);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-in-quart: cubic-bezier(0.5, 0, 0.75, 0);
+  --ease-spring: linear(0, 0.029, 0.103, 0.206, 0.325, 0.449, 0.57, 0.682, 0.781, 0.865, 0.934, 0.988, 1.028, 1.056, 1.073, 1.082, 1.083, 1.08, 1.073, 1.064, 1.054, 1.044, 1.034, 1.025, 1.017, 1.01, 1.005, 1, 0.997, 0.995, 0.994, 0.993, 0.993, 0.993, 0.994, 0.995, 0.996, 0.996, 0.997, 0.998, 1);
   --duration-fast: 150ms;
   --duration-base: 200ms;
   --duration-slow: 300ms;
@@ -110,6 +137,10 @@
   --popover-foreground: 24 23.8% 95.9%;
   --primary: 24 23.8% 95.9%;
   --primary-foreground: 38.2 21.6% 10%;
+  --primary-hover: 26.7 16.4% 89.2%;
+  --selected: 24 23.8% 95.9%;
+  --selected-foreground: 38.2 21.6% 10%;
+  --selected-hover: 26.7 16.4% 89.2%;
   --secondary: 36 17.2% 17.1%;
   --secondary-foreground: 24 23.8% 95.9%;
   --muted: 38.2 21.6% 10%;
@@ -129,8 +160,11 @@
   --border: 36 17.2% 17.1%;
   --border-strong: 38.8 17.2% 19.4%;
   --input: 38.8 17.2% 19.4%;
+  --input-hover: 36.7 9.4% 62.4%;
   --input-focus: 36.7 9.4% 62.4%;
   --ring: 36.7 9.4% 62.4%;
   --track: 38.2 21.6% 10%;
+  --control: 36 17.2% 17.1%;
+  --control-hover: 38.8 17.2% 19.4%;
   --overlay: 34.3 21.2% 6.5%;
 }

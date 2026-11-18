@@ -9,7 +9,9 @@ export const fontSizes = entries<{ $value: string; $description?: string }>(toke
 export const fontWeights = entries<{ $value: number }>(tokens.font.weight);
 export const radii = entries<{ $value: string; $description?: string }>(tokens.radius);
 export const shadows = entries<{ $value: string }>(tokens.shadow);
-export const easings = entries<{ $value: number[]; $description?: string }>(tokens.motion.easing);
+// Cubic-bezier curves only; the spring is a linear() string and is documented separately.
+export const easings = entries<{ $value: number[]; $description?: string }>(tokens.motion.easing).filter(([, t]) => Array.isArray(t.$value));
+export const spring = (tokens.motion.easing as Record<string, unknown>).spring as { $value: string; $description?: string };
 export const durations = entries<{ $value: string; $description?: string }>(tokens.motion.duration);
 
 export function resolveHex(ref: string) {

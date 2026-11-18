@@ -19,6 +19,7 @@ export const DOCS: Record<string, ComponentDoc> = {
       { name: 'button-variants', title: 'Variants', description: 'One primary per view. Secondary and outline for supporting actions, ghost for toolbars.' },
       { name: 'button-sizes', title: 'Sizes' },
       { name: 'button-icon', title: 'With icon', description: 'Icons are sized automatically. Use a spinning Loader2 and disable the button while it works.' },
+      { name: 'button-control', title: 'Control', description: 'Filled pills for toolbars on the canvas: sort, filters, header icons. aria-pressed turns it dark.' },
       { name: 'button-shape', title: 'Square', description: 'For dense admin layouts and button groups.' },
       { name: 'button-as-child', title: 'As link', description: 'asChild hands the styles to its child, so links stay links.' },
     ],
@@ -29,8 +30,8 @@ export const DOCS: Record<string, ComponentDoc> = {
       {
         name: 'Button',
         props: [
-          { name: 'variant', type: "'default' | 'secondary' | 'outline' | 'ghost' | 'destructive' | 'link'", default: "'default'", description: 'Visual weight.' },
-          { name: 'size', type: "'sm' | 'default' | 'lg' | 'icon'", default: "'default'", description: '36, 40 or 48px tall; icon is a 40px square.' },
+          { name: 'variant', type: "'default' | 'secondary' | 'outline' | 'ghost' | 'control' | 'selected' | 'destructive' | 'link'", default: "'default'", description: 'Visual weight. selected is the dark brown used for applied filters.' },
+          { name: 'size', type: "'sm' | 'default' | 'lg' | 'icon' | 'icon-sm'", default: "'default'", description: '36, 40 or 48px tall at 16px text (sm is 14px); icon is a 40px square with a 20px glyph, icon-sm 36px.' },
           { name: 'shape', type: "'pill' | 'square'", default: "'pill'", description: 'Fully rounded or 8px corners.' },
           { name: 'asChild', type: 'boolean', default: 'false', description: 'Render the child element (e.g. <a>) with button styles.' },
           className,
@@ -47,6 +48,7 @@ export const DOCS: Record<string, ComponentDoc> = {
     examples: [
       { name: 'badge-demo' },
       { name: 'badge-status', title: 'Status', description: 'Muted tones for pipeline and review states. Text meets AA on each fill.' },
+      { name: 'badge-overlay', title: 'Overlay', description: 'Translucent dark chip for labels on top of imagery, like "New" on a screenshot.' },
     ],
     usage: `import { Badge } from '@/components/ui/badge';
 
@@ -55,7 +57,7 @@ export const DOCS: Record<string, ComponentDoc> = {
       {
         name: 'Badge',
         props: [
-          { name: 'variant', type: "'default' | 'secondary' | 'neutral' | 'outline' | 'success' | 'warning' | 'danger' | 'brand'", default: "'default'", description: 'Colour and meaning.' },
+          { name: 'variant', type: "'default' | 'secondary' | 'neutral' | 'outline' | 'success' | 'warning' | 'danger' | 'brand' | 'overlay'", default: "'default'", description: 'Colour and meaning.' },
           className,
         ],
       },
@@ -68,10 +70,23 @@ export const DOCS: Record<string, ComponentDoc> = {
       { name: 'input-label', title: 'With label and hint' },
       { name: 'input-invalid', title: 'Invalid', description: 'Set aria-invalid and point aria-describedby at the error message.' },
       { name: 'input-disabled', title: 'Disabled' },
+      { name: 'input-icon', title: 'With icon', description: 'As in sign-in: the icon darkens and grows slightly while the field has focus.' },
+      { name: 'input-control', title: 'Search', description: 'variant="control" drops the border for a filled pill; leadingIcon places an icon inside.' },
     ],
     usage: `import { Input } from '@/components/ui/input';
 
 <Input type="email" placeholder="you@example.com" />`,
+    props: [
+      {
+        name: 'Input',
+        props: [
+          { name: 'variant', type: "'field' | 'control'", default: "'field'", description: '48px bordered field (hover darkens the border, focus adds a soft halo) or 44px filled search pill.' },
+          { name: 'leadingIcon', type: 'ReactNode', description: 'Decorative icon inside the left edge.' },
+          { name: 'wrapperClassName', type: 'string', description: 'Classes for the wrapper; only rendered with leadingIcon.' },
+          className,
+        ],
+      },
+    ],
     guidelines: ['Always pair with a visible Label; placeholders are hints, not labels.', 'Inputs are 16px on phones so iOS doesn’t zoom on focus.'],
   },
   textarea: {
@@ -103,7 +118,10 @@ export const DOCS: Record<string, ComponentDoc> = {
     guidelines: ['Switches apply immediately. If the change waits for a Save button, use a Checkbox.'],
   },
   select: {
-    examples: [{ name: 'select-demo' }],
+    examples: [
+      { name: 'select-demo' },
+      { name: 'select-control', title: 'Filter pill', description: 'variant="control" for gallery filters. Pass active once a value is chosen.' },
+    ],
     radix: radix('select'),
     usage: `import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
@@ -115,6 +133,16 @@ export const DOCS: Record<string, ComponentDoc> = {
     <SelectItem value="apparel">Apparel</SelectItem>
   </SelectContent>
 </Select>`,
+    props: [
+      {
+        name: 'SelectTrigger',
+        props: [
+          { name: 'variant', type: "'field' | 'control'", default: "'field'", description: 'Full-width form field or auto-width filter pill.' },
+          { name: 'active', type: 'boolean', default: 'false', description: 'control only: dark selected state.' },
+          className,
+        ],
+      },
+    ],
   },
   card: {
     examples: [{ name: 'card-demo' }],
@@ -141,7 +169,10 @@ export const DOCS: Record<string, ComponentDoc> = {
     props: [{ name: 'Alert', props: [{ name: 'variant', type: "'default' | 'success' | 'warning' | 'danger'", default: "'default'", description: 'Tone.' }, className] }],
   },
   tabs: {
-    examples: [{ name: 'tabs-demo' }],
+    examples: [
+      { name: 'tabs-demo' },
+      { name: 'tabs-underline', title: 'Underline', description: 'Page-type navigation. For route links, apply tabsTriggerVariants({ variant: "underline" }) to the link and set data-state="active" on the current one.' },
+    ],
     radix: radix('tabs'),
     usage: `import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
@@ -151,6 +182,15 @@ export const DOCS: Record<string, ComponentDoc> = {
   </TabsList>
   <TabsContent value="home">…</TabsContent>
 </Tabs>`,
+    props: [
+      {
+        name: 'TabsList',
+        props: [
+          { name: 'variant', type: "'pill' | 'underline'", default: "'pill'", description: 'Triggers inherit it.' },
+          className,
+        ],
+      },
+    ],
     guidelines: ['Tabs swap panels on the same page. To switch a filter or view mode, use Segmented Control.'],
   },
   'segmented-control': {
@@ -188,7 +228,7 @@ export const DOCS: Record<string, ComponentDoc> = {
       {
         name: 'Tag',
         props: [
-          { name: 'variant', type: "'default' | 'soft'", default: "'default'", description: 'Outlined filter chip or filled tag.' },
+          { name: 'variant', type: "'default' | 'soft' | 'outline'", default: "'default'", description: 'Filled filter chip (as in the filter sheet), lighter tag, or outlined chip.' },
           { name: 'selected', type: 'boolean', description: 'Makes the tag a toggle button (aria-pressed).' },
           { name: 'onRemove', type: '() => void', description: 'Adds an × button.' },
           className,
@@ -197,7 +237,10 @@ export const DOCS: Record<string, ComponentDoc> = {
     ],
   },
   dialog: {
-    examples: [{ name: 'dialog-demo' }],
+    examples: [
+      { name: 'dialog-demo' },
+      { name: 'dialog-viewer', title: 'Viewer', description: 'size="viewer" fills the screen with an 8–16px margin, for the screenshot viewer. Bring your own top bar and close button.' },
+    ],
     radix: radix('dialog'),
     usage: `import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
@@ -207,6 +250,16 @@ export const DOCS: Record<string, ComponentDoc> = {
     <DialogHeader><DialogTitle>Title</DialogTitle></DialogHeader>
   </DialogContent>
 </Dialog>`,
+    props: [
+      {
+        name: 'DialogContent',
+        props: [
+          { name: 'size', type: "'default' | 'lg' | 'viewer'", default: "'default'", description: '512px, 768px or near full-screen.' },
+          { name: 'showClose', type: 'boolean', default: 'true', description: 'Corner close button.' },
+          className,
+        ],
+      },
+    ],
   },
   'alert-dialog': {
     examples: [{ name: 'alert-dialog-demo' }],
@@ -286,10 +339,100 @@ export const DOCS: Record<string, ComponentDoc> = {
       'Under reduced motion it shows the still mark and label.',
     ],
   },
+  'dropdown-menu': {
+    examples: [
+      { name: 'dropdown-menu-demo' },
+      { name: 'dropdown-menu-sort', title: 'Sort', description: 'A radio group behind a control button, like the gallery’s Latest menu.' },
+    ],
+    radix: radix('dropdown-menu'),
+    usage: `import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+
+<DropdownMenu>
+  <DropdownMenuTrigger asChild><Button variant="control">Account</Button></DropdownMenuTrigger>
+  <DropdownMenuContent align="end">
+    <DropdownMenuItem>Bookmarks</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>`,
+    props: [
+      {
+        name: 'DropdownMenuItem',
+        props: [
+          { name: 'inset', type: 'boolean', description: 'Indent to line up with items that have icons.' },
+          { name: 'destructive', type: 'boolean', description: 'Red text for delete actions.' },
+          className,
+        ],
+      },
+    ],
+    guidelines: ['For picking a value in a form, use Select. Dropdown Menu is for actions and view options.'],
+  },
+  popover: {
+    examples: [{ name: 'popover-demo' }],
+    radix: radix('popover'),
+    usage: `import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+
+<Popover>
+  <PopoverTrigger asChild><Button variant="control">Fonts</Button></PopoverTrigger>
+  <PopoverContent>…</PopoverContent>
+</Popover>`,
+    guidelines: ['Same surface as menus: frosted white, 20px corners, shadow-menu.', 'Use Sheet instead on phones when the content is long.'],
+  },
+  sheet: {
+    examples: [{ name: 'sheet-demo' }],
+    radix: radix('dialog'),
+    usage: `import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+
+<Sheet>
+  <SheetTrigger asChild><Button>Filters</Button></SheetTrigger>
+  <SheetContent side="bottom">
+    <SheetHeader><SheetTitle>Filters</SheetTitle></SheetHeader>
+  </SheetContent>
+</Sheet>`,
+    props: [
+      {
+        name: 'SheetContent',
+        props: [
+          { name: 'side', type: "'top' | 'right' | 'bottom' | 'left'", default: "'right'", description: 'Edge it slides from. Bottom adds a grab handle and safe-area padding.' },
+          { name: 'showClose', type: 'boolean', default: 'true', description: 'Corner close button.' },
+          className,
+        ],
+      },
+    ],
+  },
+  toast: {
+    examples: [{ name: 'toast-demo', description: 'Mount <Toaster /> once near the root, then call toast() from anywhere.' }],
+    radix: radix('toast'),
+    usage: `import { Toaster, ToastAction, toast } from '@/components/ui/toaster';
+
+toast({
+  title: 'Added to Default',
+  action: <ToastAction altText="Undo" onClick={undo}>Undo</ToastAction>,
+});`,
+    props: [
+      {
+        name: 'toast()',
+        props: [
+          { name: 'title', type: 'ReactNode', description: 'One short line.' },
+          { name: 'description', type: 'ReactNode', description: 'Optional second part, dimmed.' },
+          { name: 'action', type: 'ToastActionElement', description: 'A ToastAction, e.g. Undo. Needs altText.' },
+          { name: 'variant', type: "'default' | 'success' | 'destructive'", default: "'default'", description: 'Destructive turns it red.' },
+          { name: 'duration', type: 'number', default: '4000', description: 'Milliseconds before it hides.' },
+        ],
+      },
+    ],
+    guidelines: ['Confirm what happened in past tense: "Added to Default".', 'Offer Undo instead of a confirm dialog for reversible actions.'],
+  },
+  progress: {
+    examples: [{ name: 'progress-demo' }],
+    radix: radix('progress'),
+    usage: `import { Progress } from '@/components/ui/progress';
+
+<Progress value={60} aria-label="Upload progress" />`,
+  },
   'screenshot-card': {
     goodcart: true,
     examples: [
       { name: 'screenshot-card-demo' },
+      { name: 'screenshot-card-gallery', title: 'Gallery', description: 'As on the home page: a "New" badge, dot-separated meta and onOpen to launch the viewer.' },
       { name: 'screenshot-card-mobile', title: 'Mobile capture', description: 'device="mobile" switches to a 9:16 frame.' },
     ],
     usage: `import { ScreenshotCard } from '@/components/ui/screenshot-card';
@@ -308,11 +451,17 @@ export const DOCS: Record<string, ComponentDoc> = {
           { name: 'src', type: 'string', description: 'Screenshot URL. Cropped from the top.' },
           { name: 'alt', type: 'string', description: 'Brand and page type, e.g. "Allbirds product page".' },
           { name: 'brand', type: 'string', description: 'Shown under the image.' },
-          { name: 'pageType', type: 'string', description: 'Secondary line.' },
+          { name: 'pageType', type: 'string', description: 'Secondary line. Ignored when meta is set.' },
+          { name: 'meta', type: 'ReactNode[]', description: 'Dot-separated items under the brand: categories, "3 states", or your own filter links.' },
           { name: 'href', type: 'string', description: 'Makes the image a link.' },
+          { name: 'onOpen', type: '() => void', description: 'Makes the image a button, e.g. to open the viewer. Ignored with href.' },
+          { name: 'badge', type: 'ReactNode', description: 'Top-right overlay, e.g. <Badge variant="overlay">New</Badge>.' },
           { name: 'device', type: "'desktop' | 'mobile'", default: "'desktop'", description: '4:3 or 9:16 frame.' },
           { name: 'bookmarked', type: 'boolean', description: 'Bookmark state.' },
-          { name: 'onBookmarkChange', type: '(bookmarked: boolean) => void', description: 'Shows the bookmark button when set.' },
+          { name: 'onBookmarkChange', type: '(bookmarked: boolean) => void', description: 'Shows the bookmark button beside the brand.' },
+          { name: 'actions', type: 'ReactNode', description: 'Replaces the bookmark button, e.g. a collections dropdown.' },
+          { name: 'loading', type: "'lazy' | 'eager'", default: "'lazy'", description: 'Use eager for the first row.' },
+          { name: 'imageClassName', type: 'string', description: 'Classes for the <img>, e.g. a different object-position.' },
         ],
       },
     ],

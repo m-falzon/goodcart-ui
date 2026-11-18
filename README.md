@@ -70,6 +70,17 @@ npm version minor        # bumps package.json and creates the tag
 git push --follow-tags
 ```
 
+## Changelog
+
+### 0.2.0
+Brings the system up to what goodcart.design uses, so the public site can move onto it.
+
+- **Tokens:** `control` / `control-hover` (filled pills on canvas), `primary-hover`; type steps `text-2xs` (11px), `text-meta` (13px), `text-md` (15px); `rounded-3xl` (20px, menus) and `rounded-4xl` (28px, sheets); `shadow-menu`, `shadow-overlay`; easings `out-smooth`, `drawer`, `in-quart` and `--ease-spring`; `animate-menu-in` / `animate-menu-out`.
+- **New components:** Dropdown Menu, Popover, Sheet, Toast (+ Toaster and `toast()`), Progress.
+- **New variants:** Button `control` and `icon-sm`; Badge `overlay`; Input `control` with `leadingIcon`; Select trigger `control` with `active`; Tabs `underline`; Dialog `size` (`lg`, `viewer`) and `showClose`.
+- **Changed:** Select lists now use the menu surface (frosted, 20px corners, 16px rows). Primary buttons hover to `primary-hover` instead of 90% opacity.
+- **Screenshot Card:** adds `meta`, `badge`, `onOpen`, `actions`, `loading` and `imageClassName`. The bookmark button moved from the image corner to beside the brand, as on the live site, and the brand is now 16px.
+
 ## Known gaps
 
 - The dark theme is a draft; goodcart.co doesn't use it yet.

@@ -7,13 +7,14 @@ import { X } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
 const tagVariants = cva(
-  'inline-flex h-8 items-center gap-1.5 rounded-full border px-3.5 text-sm font-medium transition-colors duration-fast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-3.5',
+  'inline-flex min-h-10 items-center gap-1.5 rounded-full border px-4 text-md transition-[background-color,border-color,color,transform] duration-fast ease-out active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 motion-reduce:active:scale-100 [&_svg]:size-4',
   {
     variants: {
       variant: {
         default:
-          'border-border bg-background text-foreground hover:border-border-strong aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-primary-foreground',
+          'border-transparent bg-control text-foreground hover:bg-control-hover aria-pressed:bg-selected aria-pressed:font-medium aria-pressed:text-selected-foreground',
         soft: 'border-transparent bg-secondary text-foreground hover:bg-track aria-pressed:bg-track',
+        outline: 'border-border bg-background text-foreground hover:border-border-strong aria-pressed:border-selected aria-pressed:bg-selected aria-pressed:text-selected-foreground',
       },
     },
     defaultVariants: {

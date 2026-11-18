@@ -7,7 +7,7 @@
 @layer base {
   * { @apply border-border; }
   html { -webkit-text-size-adjust: 100%; }
-  body { @apply bg-background font-sans text-foreground antialiased; }
+  body { @apply bg-canvas font-sans text-foreground antialiased; }
   ::selection { @apply bg-track; }
 }
 

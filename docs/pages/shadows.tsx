@@ -13,8 +13,9 @@ export function Shadows() {
         ))}
       </div>
       <P className="mt-6">
-        <Code>shadow-xs</Code> lifts the active tab or segment. <Code>shadow-sm</Code> for floating buttons over images. <Code>shadow-md</Code> for menus
-        and popovers. <Code>shadow-lg</Code> for dialogs and sheets.
+        <Code>shadow-xs</Code> lifts the active tab or segment. <Code>shadow-sm</Code> for floating buttons over images. <Code>shadow-menu</Code> (a hairline ring
+        plus a soft lift) for menus, popovers and select lists. <Code>shadow-overlay</Code> for dialogs, sheets, context menus and the viewer. <Code>shadow-focus</Code> is the soft halo on a focused field;{' '}
+        <Code>shadow-toast</Code> sits under the dark toast pill.
       </P>
     </>
   );

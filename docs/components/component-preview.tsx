@@ -16,7 +16,7 @@ export function ComponentPreview({ name, className, align = 'center' }: { name: 
       <TabsContent value="preview">
         <div
           className={cn(
-            'flex min-h-[320px] w-full flex-wrap gap-4 overflow-x-auto rounded-xl border border-border bg-background p-6 sm:p-10',
+            'flex min-h-[320px] w-full flex-wrap gap-4 overflow-x-auto rounded-xl border border-border bg-canvas p-6 sm:p-10',
             align === 'center' ? 'items-center justify-center' : 'items-start',
             className
           )}

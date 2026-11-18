@@ -17,7 +17,7 @@ const SegmentedControl = React.forwardRef<
     ref={ref}
     type="single"
     onValueChange={(value) => value && onValueChange?.(value)}
-    className={cn('inline-flex items-center gap-1 rounded-full bg-track p-1', className)}
+    className={cn('inline-flex items-center rounded-full bg-control p-1', className)}
     {...props}
   />
 ));
@@ -30,7 +30,7 @@ const SegmentedControlItem = React.forwardRef<
   <ToggleGroupPrimitive.Item
     ref={ref}
     className={cn(
-      'inline-flex h-8 min-w-[60px] items-center justify-center gap-1.5 rounded-full px-3 text-sm font-medium text-muted-foreground transition-colors duration-slow ease-out-quart hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-background data-[state=on]:text-foreground data-[state=on]:shadow-xs [&_svg]:size-5',
+      'inline-flex h-8 min-w-[60px] items-center justify-center gap-1.5 rounded-full px-3 text-sm font-medium text-ring transition-[background-color,color,box-shadow] duration-slow ease-out-quart hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-background data-[state=on]:text-foreground data-[state=on]:shadow-xs [&_svg]:size-[18px]',
       className
     )}
     {...props}
