@@ -260,6 +260,32 @@ export const DOCS: Record<string, ComponentDoc> = {
 <Skeleton className="aspect-[4/3] rounded-2xl" />`,
     guidelines: ['Match the shape of what’s loading so the layout doesn’t jump.', 'Mark the container aria-busy.'],
   },
+  'thumbs-up-loader': {
+    goodcart: true,
+    examples: [
+      { name: 'thumbs-up-loader-demo' },
+      { name: 'thumbs-up-loader-label', title: 'Custom label', description: 'The label is also what screen readers announce.' },
+    ],
+    usage: `import { ThumbsUpLoader } from '@/components/ui/thumbs-up-loader';
+
+<div className="fixed inset-0 z-[200] flex items-center justify-center bg-[#F9F6F4]">
+  <ThumbsUpLoader />
+</div>`,
+    props: [
+      {
+        name: 'ThumbsUpLoader',
+        props: [
+          { name: 'label', type: 'string', default: "'Signing you in'", description: 'Text under the mark, announced via role="status".' },
+          className,
+        ],
+      },
+    ],
+    guidelines: [
+      'For full-page waits such as sign-in redirects, not inline or button loading; use a spinning Loader2 there.',
+      'Centre it in the whole viewport, header included, so it sits at true centre.',
+      'Under reduced motion it shows the still mark and label.',
+    ],
+  },
   'screenshot-card': {
     goodcart: true,
     examples: [
