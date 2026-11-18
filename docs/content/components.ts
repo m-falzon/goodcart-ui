@@ -57,7 +57,7 @@ export const DOCS: Record<string, ComponentDoc> = {
       {
         name: 'Badge',
         props: [
-          { name: 'variant', type: "'default' | 'secondary' | 'neutral' | 'outline' | 'success' | 'warning' | 'danger' | 'brand' | 'overlay'", default: "'default'", description: 'Colour and meaning.' },
+          { name: 'variant', type: "'default' | 'secondary' | 'neutral' | 'outline' | 'success' | 'warning' | 'danger' | 'destructive' | 'brand' | 'overlay'", default: "'default'", description: 'Colour and meaning.' },
           className,
         ],
       },
@@ -166,7 +166,7 @@ export const DOCS: Record<string, ComponentDoc> = {
   <AlertTitle>Heads up</AlertTitle>
   <AlertDescription>…</AlertDescription>
 </Alert>`,
-    props: [{ name: 'Alert', props: [{ name: 'variant', type: "'default' | 'success' | 'warning' | 'danger'", default: "'default'", description: 'Tone.' }, className] }],
+    props: [{ name: 'Alert', props: [{ name: 'variant', type: "'default' | 'success' | 'warning' | 'danger' | 'destructive'", default: "'default'", description: 'Tone. destructive is the same as danger.' }, className] }],
   },
   tabs: {
     examples: [
@@ -391,7 +391,8 @@ export const DOCS: Record<string, ComponentDoc> = {
       {
         name: 'SheetContent',
         props: [
-          { name: 'side', type: "'top' | 'right' | 'bottom' | 'left'", default: "'right'", description: 'Edge it slides from. Bottom adds a grab handle and safe-area padding.' },
+          { name: 'side', type: "'top' | 'right' | 'bottom' | 'left'", default: "'right'", description: 'Edge it slides from. Bottom adds safe-area padding.' },
+          { name: 'handle', type: 'boolean', default: 'false', description: 'Grab handle at the top of a bottom sheet.' },
           { name: 'showClose', type: 'boolean', default: 'true', description: 'Corner close button.' },
           className,
         ],

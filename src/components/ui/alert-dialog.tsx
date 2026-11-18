@@ -17,7 +17,7 @@ const AlertDialogOverlay = React.forwardRef<
   <AlertDialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      'fixed inset-0 z-50 bg-overlay/30 backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+      'fixed inset-0 z-[110] bg-overlay/30 backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
       className
     )}
     {...props}
@@ -34,7 +34,7 @@ const AlertDialogContent = React.forwardRef<
     <AlertDialogPrimitive.Content
       ref={ref}
       className={cn(
-        'fixed z-50 grid w-[calc(100%-2rem)] max-w-[26rem] gap-6 p-6 sm:p-8 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 data-[state=open]:![--tw-enter-translate-x:-50%] data-[state=open]:![--tw-enter-translate-y:calc(-50%_+_56px)] data-[state=closed]:![--tw-exit-translate-x:-50%] data-[state=closed]:![--tw-exit-translate-y:calc(-50%_+_8px)] data-[state=open]:zoom-in-[0.92] data-[state=closed]:zoom-out-100 max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-5xl bg-canvas shadow-overlay ring-1 ring-border data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=open]:duration-[480ms] data-[state=closed]:duration-fast data-[state=open]:ease-drawer data-[state=closed]:ease-in-quart motion-reduce:animate-none',
+        'fixed z-[110] grid w-[calc(100%-2rem)] max-w-[26rem] gap-6 p-6 sm:p-8 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 data-[state=open]:![--tw-enter-translate-x:-50%] data-[state=open]:![--tw-enter-translate-y:calc(-50%_+_56px)] data-[state=closed]:![--tw-exit-translate-x:-50%] data-[state=closed]:![--tw-exit-translate-y:calc(-50%_+_8px)] data-[state=open]:zoom-in-[0.92] data-[state=closed]:zoom-out-100 max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-5xl bg-canvas shadow-overlay ring-1 ring-border data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=open]:duration-[480ms] data-[state=closed]:duration-fast data-[state=open]:ease-drawer data-[state=closed]:ease-in-quart motion-reduce:animate-none',
         className
       )}
       {...props}

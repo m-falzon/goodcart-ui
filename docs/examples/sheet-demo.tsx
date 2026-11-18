@@ -11,7 +11,7 @@ export default function SheetDemo() {
               {side}
             </Button>
           </SheetTrigger>
-          <SheetContent side={side}>
+          <SheetContent side={side} handle={side === 'bottom'}>
             <SheetHeader>
               <SheetTitle>Filters</SheetTitle>
               <SheetDescription>Narrow the gallery by industry, style and font.</SheetDescription>

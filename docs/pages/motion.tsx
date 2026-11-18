@@ -74,7 +74,7 @@ export function Motion() {
       </div>
 
       <H2>Usage</H2>
-      <P>The preset makes ease-out-quart and 200ms the defaults, so a bare <code>transition-colors</code> already feels right. Reduced-motion users get no animation.</P>
+      <P>The preset leaves Tailwind's 150ms ease as the default, so adopting it doesn't retime an existing app. Add <code>duration-fast</code> / <code>duration-base</code> and <code>ease-out-quart</code> (or another curve above) when you want the GoodCart feel. Reduced-motion users get no animation.</P>
       <CodeBlock code={`<div className="transition-transform duration-slow ease-out-expo" />`} />
     </>
   );

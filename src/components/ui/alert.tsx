@@ -12,6 +12,8 @@ const alertVariants = cva(
         success: 'border-transparent bg-success text-success-foreground [&>svg]:text-success-foreground',
         warning: 'border-transparent bg-warning text-warning-foreground [&>svg]:text-warning-foreground',
         danger: 'border-transparent bg-danger text-danger-foreground [&>svg]:text-danger-foreground',
+        /** Same as danger; kept so shadcn-style variant="destructive" works */
+        destructive: 'border-transparent bg-danger text-danger-foreground [&>svg]:text-danger-foreground',
       },
     },
     defaultVariants: {

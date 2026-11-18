@@ -19,7 +19,7 @@ const SheetOverlay = React.forwardRef<
   <SheetPrimitive.Overlay
     ref={ref}
     className={cn(
-      'fixed inset-0 z-50 bg-overlay/30 backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+      'fixed inset-0 z-[110] bg-overlay/30 backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
       className
     )}
     {...props}
@@ -28,7 +28,7 @@ const SheetOverlay = React.forwardRef<
 SheetOverlay.displayName = SheetPrimitive.Overlay.displayName;
 
 const sheetVariants = cva(
-  'fixed z-50 flex flex-col gap-4 bg-canvas p-6 shadow-overlay ring-1 ring-border will-change-transform data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:duration-slow data-[state=closed]:duration-base data-[state=open]:ease-drawer data-[state=closed]:ease-in-quart motion-reduce:animate-none',
+  'fixed z-[110] flex flex-col gap-4 bg-canvas p-6 shadow-overlay will-change-transform data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:duration-slow data-[state=closed]:duration-base data-[state=open]:ease-drawer data-[state=closed]:ease-in-quart motion-reduce:animate-none',
   {
     variants: {
       side: {
@@ -51,14 +51,16 @@ interface SheetContentProps
     VariantProps<typeof sheetVariants> {
   /** Hide the corner close button when the sheet has its own. */
   showClose?: boolean;
+  /** Grab handle at the top of a bottom sheet. Off by default; the filter sheet doesn't use one. */
+  handle?: boolean;
 }
 
 const SheetContent = React.forwardRef<React.ElementRef<typeof SheetPrimitive.Content>, SheetContentProps>(
-  ({ side = 'right', className, children, showClose = true, ...props }, ref) => (
+  ({ side = 'right', className, children, showClose = true, handle = false, ...props }, ref) => (
     <SheetPortal>
       <SheetOverlay />
       <SheetPrimitive.Content ref={ref} className={cn(sheetVariants({ side }), className)} {...props}>
-        {side === 'bottom' && <div aria-hidden className="mx-auto -mt-3 mb-1 h-1 w-10 shrink-0 rounded-full bg-border-strong" />}
+        {handle && side === 'bottom' && <div aria-hidden className="mx-auto -mt-3 mb-1 h-1 w-10 shrink-0 rounded-full bg-border-strong" />}
         {children}
         {showClose && (
           <SheetPrimitive.Close className="absolute right-4 top-3 inline-flex size-10 items-center justify-center rounded-full bg-control text-ring transition-[background-color,transform] duration-fast ease-out hover:bg-control-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring active:scale-[0.92] motion-reduce:active:scale-100">

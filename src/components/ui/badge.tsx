@@ -16,6 +16,8 @@ const badgeVariants = cva(
         success: 'border-transparent bg-success text-success-foreground',
         warning: 'border-transparent bg-warning text-warning-foreground',
         danger: 'border-transparent bg-danger text-danger-foreground',
+        /** Same as danger; kept so shadcn-style variant="destructive" works */
+        destructive: 'border-transparent bg-danger text-danger-foreground',
         brand: 'border-transparent bg-brand text-brand-foreground',
         // Sits on top of imagery, e.g. "New" on a screenshot
         overlay: 'border-transparent bg-primary/70 px-2.5 py-1 font-semibold text-primary-foreground shadow-md backdrop-blur-sm',

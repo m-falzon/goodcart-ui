@@ -63,8 +63,9 @@ module.exports = {
         'focus-danger': 'var(--shadow-focus-danger)',
         toast: 'var(--shadow-toast)',
       },
+      // No DEFAULT here on purpose: plain `transition` keeps Tailwind's 150ms ease so adopting
+      // the preset doesn't retime every transition in an existing app. Use duration-*/ease-* tokens.
       transitionTimingFunction: {
-        DEFAULT: 'var(--ease-out-quart)',
         'out-quart': 'var(--ease-out-quart)',
         'out-quint': 'var(--ease-out-quint)',
         'out-expo': 'var(--ease-out-expo)',
@@ -98,7 +99,6 @@ module.exports = {
         'toast-out': 'toast-out 180ms var(--ease-in-quart) forwards',
       },
       transitionDuration: {
-        DEFAULT: 'var(--duration-base)',
         fast: 'var(--duration-fast)',
         base: 'var(--duration-base)',
         slow: 'var(--duration-slow)',

@@ -72,6 +72,14 @@ git push --follow-tags
 
 ## Changelog
 
+### 0.2.1
+Fixes found comparing 0.2.0 with goodcart.design, so moving the site onto the package changes as little as possible.
+
+- Dialog, Alert Dialog and Sheet sit at `z-[110]` (was `z-50`), above the site's header (`z-[100]`), matching the app's own overlays.
+- Sheet: the bottom grab handle is opt-in (`handle`), and the sheet no longer adds a ring by default.
+- Alert and Badge accept `variant="destructive"` (same as `danger`), so shadcn-style calls keep their colour.
+- Preset no longer overrides the default transition (Tailwind's 150ms ease stays), so plain `transition` classes in an existing app keep their timing.
+
 ### 0.2.0
 Brings the system up to what goodcart.design uses, so the public site can move onto it.
 
